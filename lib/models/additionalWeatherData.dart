@@ -18,4 +18,12 @@ class AdditionalWeatherData {
       clouds: json['daily'][0]['clouds'] ?? 0,
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'precipitation': precipitation,
+      'uvi': uvi,
+      'clouds': clouds,
+    };
+  }
 }

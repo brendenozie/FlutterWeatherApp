@@ -31,12 +31,12 @@ class MainWeatherInfo extends StatelessWidget {
         );
       }
 
-      final String temperature = weatherProv.isCelsius
-          ? weatherProv.weather.temp.toStringAsFixed(1)
-          : weatherProv.weather.temp.toFahrenheit().toStringAsFixed(1);
+      final String? temperature = weatherProv.isCelsius
+          ? weatherProv.weather?.temp.toStringAsFixed(1)
+          : weatherProv.weather?.temp.toFahrenheit().toStringAsFixed(1);
       final String unit = weatherProv.measurementUnit;
-      final String description = weatherProv.weather.description.toTitleCase();
-      final String weatherImage = getWeatherImage(weatherProv.weather.weatherCategory);
+      final String? description = weatherProv.weather?.description.toTitleCase();
+      final String? weatherImage = getWeatherImage(weatherProv.weather?.weatherCategory);
 
       return Container(
         decoration: BoxDecoration(
@@ -60,7 +60,7 @@ class MainWeatherInfo extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        temperature,
+                        temperature!,
                         style: boldText.copyWith(
                           fontSize: 72.0,
                           color: Colors.white,
@@ -80,7 +80,7 @@ class MainWeatherInfo extends StatelessWidget {
                   ),
                   const SizedBox(height: 8.0),
                   Text(
-                    description,
+                    description!,
                     style: lightText.copyWith(
                       fontSize: 18.0,
                       color: Colors.white70,
@@ -93,7 +93,7 @@ class MainWeatherInfo extends StatelessWidget {
               height: 128.0,
               width: 128.0,
               child: Image.asset(
-                weatherImage,
+                weatherImage!,
                 fit: BoxFit.contain,
               ),
             ),

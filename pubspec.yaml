@@ -36,6 +36,9 @@ dependencies:
   shimmer: ^3.0.0
   simple_animations: ^5.0.0+3
   supercharged: ^2.1.1
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  connectivity_plus: ^6.1.2
   
 
 dev_dependencies:

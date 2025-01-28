@@ -13,8 +13,8 @@ String uviValueToString(double uvi) {
   return 'Unknown';
 }
 
-String getWeatherImage(String input) {
-  String weather = input.toLowerCase();
+String getWeatherImage(String? input) {
+  String? weather = input?.toLowerCase();
   String assetPath = 'assets/images/';
   switch (weather) {
     case 'thunderstorm':

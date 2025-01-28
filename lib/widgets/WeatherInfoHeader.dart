@@ -38,7 +38,7 @@ class WeatherInfoHeader extends StatelessWidget {
                         const SizedBox(width: 4.0),
                         Flexible(
                           child: Text(
-                            '${weatherProv.weather.city}, ${Country.tryParse(weatherProv.weather.countryCode)?.name ?? ''}',
+                            '${weatherProv.weather?.city}, ${Country.tryParse(weatherProv.weather!.countryCode)?.name ?? ''}',
                             style: semiboldText.copyWith(fontSize: 18.0),
                             overflow: TextOverflow.ellipsis,
                           ),

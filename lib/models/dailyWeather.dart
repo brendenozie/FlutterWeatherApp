@@ -34,6 +34,35 @@ class DailyWeather with ChangeNotifier {
     required this.humidity,
   });
 
+  // Convert DailyWeather object to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'temp': {
+        'day': temp,
+        'min': tempMin,
+        'max': tempMax,
+      },
+      'feels_like': {
+        'morn': tempMorning,
+        'day': tempDay,
+        'eve': tempEvening,
+        'night': tempNight,
+      },
+      'weather': [
+        {
+          'main': weatherCategory,
+          'description': condition,
+        }
+      ],
+      'dt': date.millisecondsSinceEpoch ~/ 1000, // Convert DateTime to timestamp
+      'pop': double.parse(precipitation) / 100, // Convert back to original format
+      'uvi': uvi,
+      'clouds': clouds,
+      'humidity': humidity,
+    };
+  }
+
+
   static DailyWeather fromDailyJson(dynamic json) {
     return DailyWeather(
       temp: (json['temp']['day']).toDouble(),

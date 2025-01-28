@@ -46,8 +46,8 @@ class MainWeatherDetail extends StatelessWidget {
                     context,
                     title: 'Feels Like',
                     data: weatherProv.isCelsius
-                        ? '${weatherProv.weather.feelsLike.toStringAsFixed(1)}°'
-                        : '${weatherProv.weather.feelsLike.toFahrenheit().toStringAsFixed(1)}°',
+                        ? '${weatherProv.weather?.feelsLike.toStringAsFixed(1)}°'
+                        : '${weatherProv.weather?.feelsLike.toFahrenheit().toStringAsFixed(1)}°',
                     icon: PhosphorIconsRegular.thermometerSimple,
                   ),
                   _buildDetailTile(
@@ -77,13 +77,13 @@ class MainWeatherDetail extends StatelessWidget {
                   _buildDetailTile(
                     context,
                     title: 'Wind',
-                    data: '${weatherProv.weather.windSpeed} m/s',
+                    data: '${weatherProv.weather?.windSpeed} m/s',
                     icon: PhosphorIconsRegular.wind,
                   ),
                   _buildDetailTile(
                     context,
                     title: 'Humidity',
-                    data: '${weatherProv.weather.humidity}%',
+                    data: '${weatherProv.weather?.humidity}%',
                     icon: PhosphorIconsRegular.dropHalfBottom,
                   ),
                   _buildDetailTile(

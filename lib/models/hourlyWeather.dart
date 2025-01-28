@@ -20,4 +20,13 @@ class HourlyWeather {
       date: DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000),
     );
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'temp': temp,
+      'weatherCategory': weatherCategory,
+      'condition': condition,
+      'date': date.millisecondsSinceEpoch ~/ 1000, // Convert back to Unix timestamp
+    };
+  }
 }

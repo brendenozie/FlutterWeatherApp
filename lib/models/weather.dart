@@ -32,6 +32,37 @@ class Weather with ChangeNotifier {
     required this.countryCode,
   });
 
+  // Convert Weather object to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'main': {
+        'temp': temp,
+        'temp_max': tempMax,
+        'temp_min': tempMin,
+        'feels_like': feelsLike,
+        'pressure': pressure,
+        'humidity': humidity,
+      },
+      'coord': {
+        'lat': lat,
+        'lon': long,
+      },
+      'weather': [
+        {
+          'main': weatherCategory,
+          'description': description,
+        }
+      ],
+      'wind': {
+        'speed': windSpeed,
+      },
+      'name': city,
+      'sys': {
+        'country': countryCode,
+      }
+    };
+  }
+
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
       temp: (json['main']['temp']).toDouble(),
